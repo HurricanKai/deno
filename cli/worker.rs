@@ -41,15 +41,15 @@ use crate::util::checksum;
 use crate::version;
 
 pub struct CliMainWorker {
-  main_module: ModuleSpecifier,
-  is_main_cjs: bool,
-  worker: MainWorker,
-  ps: ProcState,
+  pub main_module: ModuleSpecifier,
+  pub is_main_cjs: bool,
+  pub worker: MainWorker,
+  pub ps: ProcState,
 
-  js_run_tests_callback: Option<v8::Global<v8::Function>>,
-  js_run_benchmarks_callback: Option<v8::Global<v8::Function>>,
-  js_enable_test_callback: Option<v8::Global<v8::Function>>,
-  js_enable_bench_callback: Option<v8::Global<v8::Function>>,
+  pub js_run_tests_callback: Option<v8::Global<v8::Function>>,
+  pub js_run_benchmarks_callback: Option<v8::Global<v8::Function>>,
+  pub js_enable_test_callback: Option<v8::Global<v8::Function>>,
+  pub js_enable_bench_callback: Option<v8::Global<v8::Function>>,
 }
 
 impl CliMainWorker {

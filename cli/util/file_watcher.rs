@@ -1,7 +1,7 @@
 // Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
 
-use crate::colors;
 use crate::util::fs::canonicalize_path;
+use deno_runtime::colors;
 
 use deno_core::error::AnyError;
 use deno_core::error::JsError;

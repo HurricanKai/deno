@@ -2,10 +2,10 @@
 
 use crate::args::Flags;
 use crate::args::ReplFlags;
-use crate::colors;
 use crate::proc_state::ProcState;
 use crate::worker::create_main_worker;
 use deno_core::error::AnyError;
+use deno_runtime::colors;
 use deno_runtime::permissions::Permissions;
 use deno_runtime::permissions::PermissionsContainer;
 use rustyline::error::ReadlineError;

@@ -1,10 +1,10 @@
 // Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
 
 use crate::args::InitFlags;
-use crate::colors;
 use crate::deno_std;
 use deno_core::anyhow::Context;
 use deno_core::error::AnyError;
+use deno_runtime::colors;
 use log::info;
 use std::io::Write;
 use std::path::Path;

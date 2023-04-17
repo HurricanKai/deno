@@ -7,12 +7,12 @@ use crate::args::TsTypeLib;
 use crate::args::TypeCheckMode;
 use crate::cache;
 use crate::cache::TypeCheckCache;
-use crate::colors;
 use crate::errors::get_error_class_name;
 use crate::npm::NpmPackageResolver;
 use crate::proc_state::ProcState;
 use crate::resolver::CliGraphResolver;
 use crate::tools::check;
+use deno_runtime::colors;
 
 use deno_core::anyhow::bail;
 use deno_core::error::custom_error;

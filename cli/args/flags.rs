@@ -2545,7 +2545,7 @@ fn eval_parse(flags: &mut Flags, matches: &mut ArgMatches) {
   if as_typescript {
     eprintln!(
       "{}",
-      crate::colors::yellow(
+      deno_runtime::colors::yellow(
         "Warning: --ts/-T flag is deprecated. Use --ext=ts instead."
       ),
     );
@@ -2803,7 +2803,7 @@ fn test_parse(flags: &mut Flags, matches: &mut ArgMatches) {
     // crate here and this is only done for testing anyway.
     eprintln!(
       "{}",
-      crate::colors::yellow("Warning: --jobs flag is deprecated. Use the --parallel flag with possibly the 'DENO_JOBS' environment variable."),
+      deno_runtime::colors::yellow("Warning: --jobs flag is deprecated. Use the --parallel flag with possibly the 'DENO_JOBS' environment variable."),
     );
     if let Some(value) = matches.remove_one::<NonZeroUsize>("jobs") {
       Some(value)

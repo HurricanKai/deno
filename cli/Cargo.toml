@@ -11,6 +11,10 @@ license.workspace = true
 repository.workspace = true
 description = "Provides the deno executable"
 
+[lib]
+name = "deno_cli"
+path = "lib.rs"
+
 [[bin]]
 name = "deno"
 path = "main.rs"
@@ -27,8 +31,13 @@ harness = false
 path = "./bench/lsp_bench_standalone.rs"
 
 [build-dependencies]
-deno_runtime = { workspace = true, features = ["snapshot_from_snapshot", "include_js_files_for_snapshotting"] }
-deno_core = { workspace = true, features = ["include_js_files_for_snapshotting"] }
+deno_runtime = { workspace = true, features = [
+    "snapshot_from_snapshot",
+    "include_js_files_for_snapshotting",
+] }
+deno_core = { workspace = true, features = [
+    "include_js_files_for_snapshotting",
+] }
 regex.workspace = true
 serde.workspace = true
 serde_json.workspace = true
@@ -40,15 +49,33 @@ winapi.workspace = true
 winres.workspace = true
 
 [dependencies]
-deno_ast = { workspace = true, features = ["bundler", "cjs", "codegen", "dep_graph", "module_specifier", "proposal", "react", "sourcemap", "transforms", "typescript", "view", "visit"] }
-deno_core = { workspace = true, features = ["include_js_files_for_snapshotting"] }
+deno_ast = { workspace = true, features = [
+    "bundler",
+    "cjs",
+    "codegen",
+    "dep_graph",
+    "module_specifier",
+    "proposal",
+    "react",
+    "sourcemap",
+    "transforms",
+    "typescript",
+    "view",
+    "visit",
+] }
+deno_core = { workspace = true, features = [
+    "include_js_files_for_snapshotting",
+] }
 deno_doc = "0.61.0"
 deno_emit = "0.19.0"
 deno_graph = "=0.47.1"
 deno_lint = { version = "0.43.0", features = ["docs"] }
 deno_lockfile.workspace = true
 deno_npm = "0.2.0"
-deno_runtime = { workspace = true, features = ["dont_create_runtime_snapshot", "include_js_files_for_snapshotting"] }
+deno_runtime = { workspace = true, features = [
+    "dont_create_runtime_snapshot",
+    "include_js_files_for_snapshotting",
+] }
 deno_semver = "0.2.0"
 deno_task_shell = "0.11.0"
 napi_sym.workspace = true
@@ -59,13 +86,13 @@ base32 = "=0.4.0"
 base64.workspace = true
 cache_control.workspace = true
 chrono = { version = "=0.4.22", default-features = false, features = ["std"] }
-clap = { version = "=4.1.10", features = ["string"] }
+clap = { version = "=4.1.14", features = ["string"] }
 clap_complete = "=4.1.5"
 clap_complete_fig = "=4.1.2"
 console_static_text.workspace = true
 data-url.workspace = true
 dissimilar = "=1.0.4"
-dprint-plugin-json = "=0.17.0"
+dprint-plugin-json = "=0.17.1"
 dprint-plugin-markdown = "=0.15.2"
 dprint-plugin-typescript = "=0.84.0"
 encoding_rs.workspace = true
@@ -90,7 +117,9 @@ pin-project.workspace = true
 rand = { workspace = true, features = ["small_rng"] }
 regex.workspace = true
 ring.workspace = true
-rustyline = { version = "=10.0.0", default-features = false, features = ["custom-bindings"] }
+rustyline = { version = "=10.0.0", default-features = false, features = [
+    "custom-bindings",
+] }
 rustyline-derive = "=0.7.0"
 serde.workspace = true
 serde_repr.workspace = true
@@ -112,7 +141,16 @@ zstd.workspace = true
 [target.'cfg(windows)'.dependencies]
 fwdansi.workspace = true
 junction = "=0.2.0"
-winapi = { workspace = true, features = ["knownfolders", "mswsock", "objbase", "shlobj", "tlhelp32", "winbase", "winerror", "winsock2"] }
+winapi = { workspace = true, features = [
+    "knownfolders",
+    "mswsock",
+    "objbase",
+    "shlobj",
+    "tlhelp32",
+    "winbase",
+    "winerror",
+    "winsock2",
+] }
 
 [target.'cfg(unix)'.dependencies]
 nix.workspace = true

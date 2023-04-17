@@ -2,13 +2,12 @@
 
 use crate::args::CaData;
 use crate::args::Flags;
-use crate::colors;
 use crate::file_fetcher::get_source_from_data_url;
 use crate::ops;
 use crate::proc_state::ProcState;
+use crate::resolver::CliGraphResolver;
 use crate::util::v8::construct_v8_flags;
 use crate::version;
-use crate::CliGraphResolver;
 use deno_core::anyhow::Context;
 use deno_core::error::type_error;
 use deno_core::error::AnyError;
@@ -28,6 +27,7 @@ use deno_core::ModuleSpecifier;
 use deno_core::ModuleType;
 use deno_core::ResolutionKind;
 use deno_graph::source::Resolver;
+use deno_runtime::colors;
 use deno_runtime::fmt_errors::format_js_error;
 use deno_runtime::ops::worker_host::CreateWebWorkerCb;
 use deno_runtime::ops::worker_host::WorkerEventCb;

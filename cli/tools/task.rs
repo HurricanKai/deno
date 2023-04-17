@@ -2,7 +2,6 @@
 
 use crate::args::Flags;
 use crate::args::TaskFlags;
-use crate::colors;
 use crate::proc_state::ProcState;
 use crate::util::fs::canonicalize_path;
 use deno_core::anyhow::bail;
@@ -10,6 +9,7 @@ use deno_core::anyhow::Context;
 use deno_core::error::AnyError;
 use deno_core::futures;
 use deno_core::futures::future::LocalBoxFuture;
+use deno_runtime::colors;
 use deno_semver::npm::NpmPackageNv;
 use deno_task_shell::ExecuteResult;
 use deno_task_shell::ShellCommand;

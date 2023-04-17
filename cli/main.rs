@@ -44,7 +44,7 @@ use deno_runtime::tokio_util::run_local;
 use std::env;
 use std::path::PathBuf;
 
-async fn run_subcommand(flags: Flags) -> Result<i32, AnyError> {
+pub async fn run_subcommand(flags: Flags) -> Result<i32, AnyError> {
   match flags.subcommand.clone() {
     DenoSubcommand::Bench(bench_flags) => {
       let cli_options = CliOptions::from_flags(flags)?;
@@ -202,7 +202,7 @@ fn setup_panic_hook() {
   }));
 }
 
-fn unwrap_or_exit<T>(result: Result<T, AnyError>) -> T {
+pub fn unwrap_or_exit<T>(result: Result<T, AnyError>) -> T {
   match result {
     Ok(value) => value,
     Err(error) => {

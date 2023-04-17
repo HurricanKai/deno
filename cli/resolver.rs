@@ -29,15 +29,16 @@ use crate::util::sync::AtomicFlag;
 /// import map, JSX settings.
 #[derive(Debug, Clone)]
 pub struct CliGraphResolver {
-  maybe_import_map: Option<Arc<ImportMap>>,
-  maybe_default_jsx_import_source: Option<String>,
-  maybe_jsx_import_source_module: Option<String>,
-  no_npm: bool,
-  npm_registry_api: CliNpmRegistryApi,
-  npm_resolution: NpmResolution,
-  package_json_deps_installer: PackageJsonDepsInstaller,
-  found_package_json_dep_flag: Arc<AtomicFlag>,
-  sync_download_queue: Option<Arc<TaskQueue>>,
+  // HACK: Made all this public but really it shouldn't
+  pub maybe_import_map: Option<Arc<ImportMap>>,
+  pub maybe_default_jsx_import_source: Option<String>,
+  pub maybe_jsx_import_source_module: Option<String>,
+  pub no_npm: bool,
+  pub npm_registry_api: CliNpmRegistryApi,
+  pub npm_resolution: NpmResolution,
+  pub package_json_deps_installer: PackageJsonDepsInstaller,
+  pub found_package_json_dep_flag: Arc<AtomicFlag>,
+  pub sync_download_queue: Option<Arc<TaskQueue>>,
 }
 
 impl Default for CliGraphResolver {

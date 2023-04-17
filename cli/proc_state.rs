@@ -82,7 +82,7 @@ pub struct Inner {
   pub emit_cache: EmitCache,
   pub emit_options: deno_ast::EmitOptions,
   pub emit_options_hash: u64,
-  graph_container: ModuleGraphContainer,
+  pub graph_container: ModuleGraphContainer, // HACK: This shouldn't be made public really
   pub lockfile: Option<Arc<Mutex<Lockfile>>>,
   pub maybe_import_map: Option<Arc<ImportMap>>,
   pub maybe_inspector_server: Option<Arc<InspectorServer>>,
@@ -509,6 +509,7 @@ impl ProcState {
     Ok(response.into_url())
   }
 
+  #[deprecated(note = "Do not use in windmill - uses real file system")]
   pub fn resolve(
     &self,
     specifier: &str,

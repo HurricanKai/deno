@@ -1,10 +1,10 @@
 // Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
 
-mod config_file;
-mod flags;
-mod flags_allow_net;
-mod import_map;
-mod lockfile;
+pub mod config_file;
+pub mod flags;
+pub mod flags_allow_net;
+pub mod import_map;
+pub mod lockfile;
 pub mod package_json;
 
 pub use self::import_map::resolve_import_map_from_specifier;

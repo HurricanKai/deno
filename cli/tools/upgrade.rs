@@ -4,13 +4,13 @@
 
 use crate::args::Flags;
 use crate::args::UpgradeFlags;
-use crate::colors;
 use crate::http_util::HttpClient;
 use crate::proc_state::ProcState;
 use crate::util::progress_bar::ProgressBar;
 use crate::util::progress_bar::ProgressBarStyle;
 use crate::util::time;
 use crate::version;
+use deno_runtime::colors;
 
 use deno_core::anyhow::bail;
 use deno_core::anyhow::Context;

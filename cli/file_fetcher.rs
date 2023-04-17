@@ -4,7 +4,6 @@ use crate::args::CacheSetting;
 use crate::auth_tokens::AuthToken;
 use crate::auth_tokens::AuthTokens;
 use crate::cache::HttpCache;
-use crate::colors;
 use crate::http_util;
 use crate::http_util::resolve_redirect_from_response;
 use crate::http_util::CacheSemantics;
@@ -13,6 +12,7 @@ use crate::http_util::HttpClient;
 use crate::util::progress_bar::ProgressBar;
 use crate::util::progress_bar::UpdateGuard;
 use crate::util::text_encoding;
+use deno_runtime::colors;
 
 use data_url::DataUrl;
 use deno_ast::MediaType;
@@ -686,7 +686,7 @@ async fn fetch_once<'a>(
   if let Some(warning) = response_headers.get("X-Deno-Warning") {
     log::warn!(
       "{} {}",
-      crate::colors::yellow("Warning"),
+      deno_runtime::colors::yellow("Warning"),
       warning.to_str().unwrap()
     );
   }

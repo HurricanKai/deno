@@ -19,7 +19,7 @@ use deno_semver::npm::NpmPackageReq;
 
 use crate::args::config_file::LockConfig;
 use crate::args::ConfigFile;
-use crate::Flags;
+use crate::args::Flags;
 
 use super::DenoSubcommand;
 

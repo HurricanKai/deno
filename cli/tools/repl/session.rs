@@ -1,8 +1,8 @@
 // Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
 
-use crate::colors;
 use crate::lsp::ReplLanguageServer;
-use crate::ProcState;
+use crate::proc_state::ProcState;
+use deno_runtime::colors;
 
 use deno_ast::swc::ast as swc_ast;
 use deno_ast::swc::visit::noop_visit_type;

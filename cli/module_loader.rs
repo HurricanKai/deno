@@ -320,7 +320,7 @@ impl SourceMapGetter for CliModuleLoader {
     if line_number >= lines.len() {
       Some(format!(
         "{} Couldn't format source line: Line {} is out of bounds (source may have changed at runtime)",
-        crate::colors::yellow("Warning"), line_number + 1,
+        deno_runtime::colors::yellow("Warning"), line_number + 1,
       ))
     } else {
       Some(lines[line_number].to_string())

@@ -10,7 +10,7 @@ mod flags;
 mod gotham_state;
 mod inspector;
 mod io;
-mod module_specifier;
+pub mod module_specifier; // HACK: This should not be public
 mod modules;
 mod normalize_path;
 mod ops;

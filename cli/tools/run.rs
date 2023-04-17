@@ -20,7 +20,7 @@ pub async fn run_script(flags: Flags) -> Result<i32, AnyError> {
   if !flags.has_permission() && flags.has_permission_in_argv() {
     log::warn!(
       "{}",
-      crate::colors::yellow(
+      deno_runtime::colors::yellow(
         r#"Permission flags have likely been incorrectly set after the script argument.
 To grant permissions, set them before the script argument. For example:
     deno run --allow-read=. main.js"#

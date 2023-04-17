@@ -3,19 +3,19 @@
 use crate::args::BenchOptions;
 use crate::args::CliOptions;
 use crate::args::TypeCheckMode;
-use crate::colors;
-use crate::display::write_json_to_stdout;
 use crate::graph_util::graph_valid_with_cli_options;
 use crate::ops;
 use crate::proc_state::ProcState;
 use crate::tools::test::format_test_error;
 use crate::tools::test::TestFilter;
+use crate::util::display::write_json_to_stdout;
 use crate::util::file_watcher;
 use crate::util::file_watcher::ResolutionResult;
 use crate::util::fs::collect_specifiers;
 use crate::util::path::is_supported_ext;
 use crate::version::get_user_agent;
 use crate::worker::create_main_worker_for_test_or_bench;
+use deno_runtime::colors;
 
 use deno_core::error::generic_error;
 use deno_core::error::AnyError;
@@ -788,7 +788,7 @@ mod mitata {
   //
   // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-  use crate::colors;
+  use deno_runtime::colors;
   use std::str::FromStr;
 
   fn fmt_duration(time: f64) -> String {

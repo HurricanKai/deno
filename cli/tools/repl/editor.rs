@@ -1,6 +1,5 @@
 // Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
 
-use crate::colors;
 use deno_ast::swc::parser::error::SyntaxError;
 use deno_ast::swc::parser::token::BinOpToken;
 use deno_ast::swc::parser::token::Token;
@@ -10,6 +9,7 @@ use deno_core::anyhow::Context as _;
 use deno_core::error::AnyError;
 use deno_core::parking_lot::Mutex;
 use deno_core::serde_json;
+use deno_runtime::colors;
 use rustyline::completion::Completer;
 use rustyline::error::ReadlineError;
 use rustyline::highlight::Highlighter;

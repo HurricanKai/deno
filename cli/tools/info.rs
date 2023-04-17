@@ -26,11 +26,11 @@ use deno_semver::npm::NpmPackageReqReference;
 
 use crate::args::Flags;
 use crate::args::InfoFlags;
-use crate::display;
 use crate::graph_util::graph_lock_or_exit;
 use crate::npm::NpmPackageResolver;
 use crate::proc_state::ProcState;
 use crate::util::checksum;
+use crate::util::display;
 
 pub async fn info(flags: Flags, info_flags: InfoFlags) -> Result<(), AnyError> {
   let ps = ProcState::build(flags).await?;
