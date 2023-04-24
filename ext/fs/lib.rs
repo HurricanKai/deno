@@ -1,8 +1,8 @@
 // Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
 
-mod interface;
-mod ops;
-mod std_fs;
+pub mod interface;
+pub mod ops;
+pub mod std_fs;
 
 pub use crate::interface::File;
 pub use crate::interface::FileSystem;
