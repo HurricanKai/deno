@@ -649,7 +649,11 @@ fn resolve_graph_specifier_types(
         let specifier =
           node::resolve_specifier_into_node_modules(&module.specifier);
         NodeResolution::into_specifier_and_media_type(
-          node::url_to_node_resolution(specifier, npm_resolver).ok(),
+          node::url_to_node_resolution::<deno_runtime::deno_node::RealFs>(
+            specifier,
+            npm_resolver,
+          )
+          .ok(),
         )
       }))
     }
@@ -669,7 +673,7 @@ fn resolve_non_graph_specifier_types(
   if npm_resolver.in_npm_package(referrer) {
     // we're in an npm package, so use node resolution
     Ok(Some(NodeResolution::into_specifier_and_media_type(
-      node::node_resolve(
+      node::node_resolve::<deno_runtime::deno_node::RealFs>(
         specifier,
         referrer,
         NodeResolutionMode::Types,
@@ -699,12 +703,13 @@ pub fn resolve_npm_package_reference_types(
   npm_ref: &NpmPackageNvReference,
   npm_resolver: &NpmPackageResolver,
 ) -> Result<(ModuleSpecifier, MediaType), AnyError> {
-  let maybe_resolution = node_resolve_npm_reference(
-    npm_ref,
-    NodeResolutionMode::Types,
-    npm_resolver,
-    &mut PermissionsContainer::allow_all(),
-  )?;
+  let maybe_resolution =
+    node_resolve_npm_reference::<deno_runtime::deno_node::RealFs>(
+      npm_ref,
+      NodeResolutionMode::Types,
+      npm_resolver,
+      &mut PermissionsContainer::allow_all(),
+    )?;
   Ok(NodeResolution::into_specifier_and_media_type(
     maybe_resolution,
   ))

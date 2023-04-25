@@ -1070,7 +1070,7 @@ impl Documents {
         if npm_resolver.in_npm_package(referrer) {
           // we're in an npm package, so use node resolution
           results.push(Some(NodeResolution::into_specifier_and_media_type(
-            node::node_resolve(
+            node::node_resolve::<deno_runtime::deno_node::RealFs>(
               &specifier,
               referrer,
               NodeResolutionMode::Types,
@@ -1461,7 +1461,7 @@ fn node_resolve_npm_req_ref(
         .pkg_req_ref_to_nv_ref(npm_req_ref)
         .ok()
         .and_then(|pkg_id_ref| {
-          node_resolve_npm_reference(
+          node_resolve_npm_reference::<deno_runtime::deno_node::RealFs>(
             &pkg_id_ref,
             NodeResolutionMode::Types,
             npm_resolver,

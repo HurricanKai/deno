@@ -176,7 +176,7 @@ impl CliModuleLoader {
           self.root_permissions.clone()
         };
         // translate cjs to esm if it's cjs and inject node globals
-        node::translate_cjs_to_esm(
+        node::translate_cjs_to_esm::<deno_runtime::deno_node::RealFs>(
           &self.ps.file_fetcher,
           specifier,
           code,

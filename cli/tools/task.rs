@@ -236,8 +236,9 @@ fn resolve_npm_commands(
   let mut result = HashMap::new();
   let snapshot = ps.npm_resolver.snapshot();
   for id in snapshot.top_level_packages() {
-    let bin_commands =
-      crate::node::node_resolve_binary_commands(&id.nv, &ps.npm_resolver)?;
+    let bin_commands = crate::node::node_resolve_binary_commands::<
+      deno_runtime::deno_node::RealFs,
+    >(&id.nv, &ps.npm_resolver)?;
     for bin_command in bin_commands {
       result.insert(
         bin_command.to_string(),

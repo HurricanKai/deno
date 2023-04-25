@@ -525,7 +525,9 @@ impl ProcState {
       if self.npm_resolver.in_npm_package(referrer) {
         // we're in an npm package, so use node resolution
         return self
-          .handle_node_resolve_result(node::node_resolve(
+          .handle_node_resolve_result(node::node_resolve::<
+            deno_runtime::deno_node::RealFs,
+          >(
             specifier,
             referrer,
             NodeResolutionMode::Execution,
@@ -551,7 +553,9 @@ impl ProcState {
 
           return match graph.get(specifier) {
             Some(Module::Npm(module)) => self
-              .handle_node_resolve_result(node::node_resolve_npm_reference(
+              .handle_node_resolve_result(node::node_resolve_npm_reference::<
+                deno_runtime::deno_node::RealFs,
+              >(
                 &module.nv_reference,
                 NodeResolutionMode::Execution,
                 &self.npm_resolver,
@@ -613,7 +617,9 @@ impl ProcState {
           let reference =
             self.npm_resolution.pkg_req_ref_to_nv_ref(reference)?;
           return self
-            .handle_node_resolve_result(node::node_resolve_npm_reference(
+            .handle_node_resolve_result(node::node_resolve_npm_reference::<
+              deno_runtime::deno_node::RealFs,
+            >(
               &reference,
               deno_runtime::deno_node::NodeResolutionMode::Execution,
               &self.npm_resolver,
